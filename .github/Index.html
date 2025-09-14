@@ -1,0 +1,1000 @@
+# Dark-x<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسن 200 - مافیای خطرناک</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Reem+Kufi&display=swap" rel="stylesheet">
+    <style>
+        /* متغیرهای CSS با تم مافیایی */
+        :root {
+            --dark-red: #8B0000;
+            --blood-red: #8B0000;
+            --gold: #FFD700;
+            --dark-gray: #2C2C2C;
+            --light-gray: #3C3C3C;
+            --black: #000000;
+            --white: #F5F5F5;
+            --transition: all 0.4s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            --border-radius: 8px;
+        }
+
+        /* ریست و پایه‌های استایل */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Scheherazade New', serif;
+            line-height: 1.6;
+            color: var(--white);
+            background-color: var(--black);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 30%);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--blood-red);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+            box-shadow: var(--box-shadow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--blood-red);
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--gold);
+            position: relative;
+            font-family: 'Reem Kufi', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: var(--blood-red);
+            border-radius: 2px;
+        }
+
+        /* نوار ناوبری */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--blood-red);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .logo span {
+            color: var(--blood-red);
+            margin-right: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--blood-red);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* هیرو بخش */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%238B0000" stroke-width="1" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            color: var(--gold);
+            font-family: 'Reem Kufi', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+            color: var(--white);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* بخش شخصیت‌ها */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .character-card {
+            background: var(--dark-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--blood-red);
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .character-img {
+            height: 300px;
+            background: linear-gradient(45deg, var(--dark-gray), var(--black));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--blood-red);
+        }
+
+        .character-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .character-content {
+            padding: 25px;
+        }
+
+        .character-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .character-role {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--blood-red);
+            font-weight: 700;
+        }
+
+        .character-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .trait {
+            background: rgba(139, 0, 0, 0.2);
+            color: var(--gold);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--blood-red);
+        }
+
+        /* بخش فعالیت‌ها */
+        .activities {
+            background: var(--dark-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activities::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232C2C2C"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%238B0000" stroke-width="1" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .activity-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--blood-red);
+            text-align: center;
+        }
+
+        .activity-card:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            color: var(--blood-red);
+            margin-bottom: 20px;
+        }
+
+        .activity-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        /* بخش قوانین */
+        .rules-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rule-item {
+            background: var(--dark-gray);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--blood-red);
+            display: flex;
+            align-items: center;
+        }
+
+        .rule-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-left: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .rule-text {
+            font-size: 1.1rem;
+        }
+
+        /* بخش تماس */
+        .contact-form {
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--blood-red);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--blood-red);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* فوتر */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--blood-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%238B0000" stroke-width="1" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--gold);
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--blood-red);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .footer-links a:hover {
+            color: var(--blood-red);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 0, 0, 0.2);
+            border-radius: 50%;
+            transition: var(--transition);
+            border: 1px solid var(--blood-red);
+        }
+
+        .social-link:hover {
+            background: var(--blood-red);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            color: var(--gold);
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* مدال */
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--dark-gray);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            position: relative;
+            transform: translateY(50px);
+            transition: var(--transition);
+            border: 2px solid var(--blood-red);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .modal.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--blood-red);
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .navbar .container {
+                padding: 0 20px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--black);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+                padding: 20px 0;
+                border-top: 1px solid var(--blood-red);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- نوار ناوبری -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><span>حسن</span> ۲۰۰</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">خانه</a></li>
+                <li class="nav-item"><a href="#characters" class="nav-link">اعضای گروه</a></li>
+                <li class="nav-item"><a href="#activities" class="nav-link">فعالیت‌ها</a></li>
+                <li class="nav-item"><a href="#rules" class="nav-link">قوانین</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">تماس</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- بخش هیرو -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">مافیای حسن ۲۰۰</h1>
+                <p class="hero-subtitle">خطرناک‌ترین گروه زیرزمینی شهر - ما قوانین خود را می‌سازیم</p>
+                <div class="hero-btns">
+                    <a href="#characters" class="btn">اعضای گروه</a>
+                    <a href="#contact" class="btn">پیوستن به ما</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش شخصیت‌ها -->
+    <section id="characters" class="section">
+        <div class="container">
+            <h2 class="section-title">اعضای اصلی گروه</h2>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-img">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="character-content">
+                        <h3 class="character-name">حنان</h3>
+                        <p class="character-role">رئیس گروه - مغز متفکر</p>
+                        <div class="character-traits">
+                            <span class="trait">زیرک</span>
+                            <span class="trait">هوشیار</span>
+                            <span class="trait">بی‌رحم</span>
+                            <span class="trait">رهبر</span>
+                        </div>
+                        <p>حنان، رهبر بلامنازع گروه حسن ۲۰۰ است. با هوش فوق‌العاده و ذهن تحلیلگرش، تمام عملیات گروه را برنامه‌ریزی می‌کند. او همیشه دو قدم جلوتر از دشمنانش فکر می‌کند و هیچگاه احساساتش بر تصمیماتش غلبه نمی‌کند.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-img">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <div class="character-content">
+                        <h3 class="character-name">سمیع</h3>
+                        <p class="character-role">جاسوس - کیف‌بر</p>
+                        <div class="character-traits">
+                            <span class="trait">خیبر</span>
+                            <span class="trait">سریع</span>
+                            <span class="trait">مرموز</span>
+                            <span class="trait">بی‌صدا</span>
+                        </div>
+                        <p>سمیع، متخصص نفوذ و کسب اطلاعات است. او می‌تواند بدون اینکه کسی متوجه شود، به هر جایی نفوذ کند. مهارت‌های او در برداشتن کیف و اسناد مهم، بی‌نظیر است. سمیع همیشه در سایه حرکت می‌کند و کمتر کسی او را دیده است.</p>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="character-img">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <div class="character-content">
+                        <h3 class="character-name">نور احمد</h3>
+                        <p class="character-role">قدرت فیزیکی - محافظ</p>
+                        <div class="character-traits">
+                            <span class="trait">قدرتمند</span>
+                            <span class="trait">غول</span>
+                            <span class="trait">وفادار</span>
+                            <span class="trait">ترسناک</span>
+                        </div>
+                        <p>نور احمد، قدرت فیزیکی گروه است. با هیکل درشت و قدرتی باورنکردنی، او مسئولیت حفاظت از سایر اعضا و انجام کارهای سنگین را بر عهده دارد. وفاداری او به حنان بی‌چون و چرا است و بدون hesitation هر دستوری را اجرا می‌کند.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش فعالیت‌ها -->
+    <section id="activities" class="section activities">
+        <div class="container">
+            <h2 class="section-title">فعالیت‌های گروه</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="activity-title">اخاذی و حمایت</h3>
+                    <p>کنترل کسب و کارهای زیرزمینی و دریافت حق حمایت از تجار شهر</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="activity-title">سرقت‌های مسلحانه</h3>
+                    <p>سرقت از بانک‌ها، گاوصندوق‌ها و transports ارزشمند</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3 class="activity-title">جاسوسی و اطلاعات</h3>
+                    <p>جمع‌آوری اطلاعات محرمانه و باج‌گیری از افراد influential</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش قوانین -->
+    <section id="rules" class="section">
+        <div class="container">
+            <h2 class="section-title">قوانین گروه</h2>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <div class="rule-number">۱</div>
+                    <div class="rule-text">هرگز بدون اجازه حنان کاری انجام نده</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">۲</div>
+                    <div class="rule-text">وفاداری به گروه بر هر چیزی مقدم است</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">۳</div>
+                    <div class="rule-text">اسرار گروه را فاش نکن، حتی تحت شکنجه</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">۴</div>
+                    <div class="rule-text">هرگز به اعضای گروه خیانت نکن</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-number">۵</div>
+                    <div class="rule-text">غیرت گروهی داشته باش و از اعضا دفاع کن</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش تماس -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">تماس با گروه</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">نام مستعار</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skill" class="form-label">مهارت ویژه</label>
+                        <input type="text" id="skill" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">پیام شما</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">ارسال درخواست</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">حسن ۲۰۰</h3>
+                    <p>ما گروهی متحد و خطرناک هستیم که قوانین خودمان را می‌سازیم. شهر زیر کنترل ماست و کسی جرأت مقابله با ما را ندارد.</p>
+                </div>
+                <div>
+                    <h3 class="footer-heading">لینک‌های سریع</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">خانه</a></li>
+                        <li><a href="#characters">اعضای گروه</a></li>
+                        <li><a href="#activities">فعالیت‌ها</a></li>
+                        <li><a href="#rules">قوانین</a></li>
+                        <li><a href="#contact">تماس</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">قلمرو تحت کنترل</h3>
+                    <p>مناطق شرقی شهر</p>
+                    <p>بندرگاه و انبارها</p>
+                    <p>مراکز تجاری اصلی</p>
+                </div>
+                <div>
+                    <h3 class="footer-heading">ارتباط امن</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-shield-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© ۲۰۲۳ - گروه مافیایی حسن ۲۰۰ | تمام حقوق محفوظ است</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مدال موفقیت -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>درخواست شما ثبت شد!</h2>
+            <p>اگر صلاحیت لازم را داشته باشید، به زودی با شما تماس گرفته خواهد شد. منتظر علامت ما باشید.</p>
+        </div>
+    </div>
+
+    <script>
+        // منوی هامبورگر
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // تغییر استایل نوبار هنگام اسکرول
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // فرم تماس
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            successModal.classList.add('open');
+            
+            // ریست کردن فرم
+            contactForm.reset();
+        });
+
+        modalClose.addEventListener('click', () => {
+            successModal.classList.remove('open');
+        });
+
+        // بستن مدال با کلیک خارج از آن
+        window.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.remove('open');
+            }
+        });
+
+        // انیمیشن اسکرول
+        const scrollElements = document.querySelectorAll('.character-card, .activity-card, .rule-item');
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+        };
+
+        const hideScrollElement = (element) => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.2)) {
+                    displayScrollElement(el);
+                } else {
+                    hideScrollElement(el);
+                }
+            });
+        };
+
+        // مقداردهی اولیه برای وضعیت عناصر
+        scrollElements.forEach(el => {
+            el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            hideScrollElement(el);
+        });
+
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+
+        // فراخوانی اولیه برای بررسی عناصر در viewport
+        window.addEventListener('load', handleScrollAnimation);
+    </script>
+</body>
+  </html>
